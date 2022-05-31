@@ -1,0 +1,59 @@
+local BooHub = loadstring(game:HttpGet("https://raw.githubusercontent.com/zachisfunny/BooHub/main/Boo"))()
+
+local UI = BooHub.Load({
+     Title = "Boo Hub",
+     Style = 0,
+     SizeX = 200,
+     SizeY = 200,
+     Theme = "Dark"
+})
+
+local Page = UI.New({
+    Title = "Main"
+})
+
+Page.Label({
+    Text = "Made by zach.#6257"
+})
+
+Page.Toggle({ -- toggles a script, on or off
+    Text = "Tap",
+    Callback = function(value)
+        getgenv().AutoTap = value
+        while AutoTap == true do
+            if not AutoTap then break end
+        game:GetService("ReplicatedStorage").Events.Click3:FireServer()
+        wait()
+        end
+    end,
+    Enabled = false
+})
+
+Page.Toggle({ -- toggles a script, on or off
+    Text = "Rebirth",
+    Callback = function(value)
+        getgenv().AutoTap = value
+        while AutoTap == true do
+            if not AutoTap then break end
+local args = {
+    [1] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+        wait()
+        end
+    end,
+    Enabled = false
+})
+
+Page.Button({ -- is a button
+    Text = "Anti-AFK",
+    Callback = function()
+wait(3)
+local VirtualUser=game:service'VirtualUser'
+game:service('Players').LocalPlayer.Idled:connect(function()
+VirtualUser:CaptureController()
+VirtualUser:ClickButton2(Vector2.new())
+end)
+    end
+})
