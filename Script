@@ -13,7 +13,7 @@ local Page = UI.New({
 })
 
 Page.Label({
-    Text = "Made by zach.#6257 (zach isn't captial btw)"
+    Text = "Made by zach.#6257"
 })
 
 Page.Toggle({ -- toggles a script, on or off
